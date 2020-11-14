@@ -41,7 +41,7 @@ public class AdaptadorCategorias extends RecyclerView.Adapter<AdaptadorCategoria
                     b.putString("id", id);
                     b.putString("nombre", nombre);
                     b.putString("estado", estado);
-                 //   Navigation.findNavController(v).navigate(R.id.editarCategoria, b);
+                   Navigation.findNavController(v).navigate(R.id.nav_editarCategoria, b);
                 }
             });
         }

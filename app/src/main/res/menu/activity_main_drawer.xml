@@ -18,7 +18,8 @@
             android:title="@string/menu_slideshow" />
 
         <item
-            android:id="@+id/nav_categoria"
+            android:id="@+id/nav_listaCategorias"
             android:title="Registro de categoria" />
+
     </group>
 </menu>

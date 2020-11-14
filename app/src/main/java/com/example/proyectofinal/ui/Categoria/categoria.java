@@ -100,7 +100,7 @@ public class categoria extends Fragment implements View.OnClickListener {
                     //Acciones para guardar registro en la base de datos.
                     //Toast.makeText(getContext(), "Bien...", Toast.LENGTH_SHORT).show();
                     save_server(getContext(), Integer.parseInt(id), nombre, Integer.parseInt(datoSelect));
-                    //Navigation.findNavController(v).navigate();
+                    Navigation.findNavController(view).navigate(R.id.nav_listaCategorias);
                 } else {
                     Toast.makeText(getContext(), "Debe seleccionar un estado para la categoria",
                             Toast.LENGTH_SHORT).show();

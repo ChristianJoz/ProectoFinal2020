@@ -10,4 +10,44 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="EstadoCategoria">
+        <item>Seleccione el Estado de la Categoria</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="EstadoUsuario">
+        <item>Seleccione el Estado del Usuario</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="PreguntaUsuario">
+        <item>Seleccione una Pregunta</item>
+        <item>¿Cuál es tu nombre?</item>
+        <item>¿Cuál es tu fecha de nacimiento?</item>
+        <item>¿Cuál es tu edad?</item>
+    </string-array>
+
+    <string-array name="TipoUsuario">
+        <item>Seleccione el tipo de usuario</item>
+        <item>Administrador.</item>
+        <item>Supervisor.</item>
+        <item>Empleado.</item>
+    </string-array>
+
+
+    <string-array name="EstadoProductos">
+        <item>Seleccione un Estado para el Producto.</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string-array name="sp_fk_categoria">
+        <item>Seleccione la Categoria.</item>
+    </string-array>
+
 </resources>

@@ -8,4 +8,7 @@ public class Setting_var {
     public static final String URL_consultaAllCategorias = "http://pinguox.6te.net/AppInventario/buscar_categoria.php";
 
     public static final String URL_Editar_Categoria =  "http://pinguox.6te.net/AppInventario/EditarCategoria.php";
+
+    //Productos
+    public static final String URL_registrar_productos = "http://pinguox.6te.net/AppInventario/guardar_producto.php";
 }

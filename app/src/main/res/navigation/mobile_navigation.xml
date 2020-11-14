@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/nav_home "
+    tools:ignore="InvalidNavigation">
 
     <fragment
         android:id="@+id/nav_home"
@@ -30,4 +31,19 @@
         android:name="com.example.proyectofinal.ui.EditarCategoria.EditarCategoria"
         android:label="fragment_editar_categoria"
         tools:layout="@layout/fragment_editar_categoria" />
+
+
+    <fragment
+        android:id="@+id/nav_productos"
+        android:name="com.example.proyectofinal.ui.Producto.productos"
+        android:label="fragment_productos"
+        tools:layout="@layout/fragment_productos" />
+
+
+    <fragment
+        android:id="@+id/nav_listaProductos"
+        android:name="com.example.proyectofinal.ui.ListaProductos.ListaProductos"
+        android:label="fragment_lista_productos"
+        tools:layout="@layout/fragment_lista_productos" />
+
 </navigation>

@@ -22,28 +22,28 @@
     <fragment
         android:id="@+id/nav_listaCategorias"
         android:name="com.example.proyectofinal.ui.ListaCategoria.ListaCategorias"
-        android:label="fragment_lista_categorias"
+        android:label="Lista de Categorias"
         tools:layout="@layout/fragment_lista_categorias" />
 
 
     <fragment
         android:id="@+id/nav_editarCategoria"
         android:name="com.example.proyectofinal.ui.EditarCategoria.EditarCategoria"
-        android:label="fragment_editar_categoria"
+        android:label="Editar Categoria"
         tools:layout="@layout/fragment_editar_categoria" />
 
 
     <fragment
         android:id="@+id/nav_productos"
         android:name="com.example.proyectofinal.ui.Producto.productos"
-        android:label="fragment_productos"
+        android:label="Registro de Productos"
         tools:layout="@layout/fragment_productos" />
 
 
     <fragment
         android:id="@+id/nav_listaProductos"
         android:name="com.example.proyectofinal.ui.ListaProductos.ListaProductos"
-        android:label="fragment_lista_productos"
+        android:label="Lista de Productos"
         tools:layout="@layout/fragment_lista_productos" />
 
 </navigation>

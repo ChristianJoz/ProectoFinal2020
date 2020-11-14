@@ -11,4 +11,6 @@ public class Setting_var {
 
     //Productos
     public static final String URL_registrar_productos = "http://pinguox.6te.net/AppInventario/guardar_producto.php";
+
+    public static final String URL_buscarProductos = "http://pinguox.6te.net/AppInventario/buscar_producto.php";
 }

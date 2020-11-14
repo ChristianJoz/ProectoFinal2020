@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.Gravity;
@@ -103,7 +104,6 @@ public class productos extends Fragment {
                 } else {
                     datoStatusProduct = "";
                 }
-                Toast.makeText(getContext(), "" + datoStatusProduct, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -164,9 +164,8 @@ public class productos extends Fragment {
                 }else if(sp_estadoProductos.getSelectedItemPosition() == 0){
                     Toast.makeText(getContext(), "Debe seleccionar el estado del producto.", Toast.LENGTH_SHORT).show();
                 }else if(sp_fk_categoria.getSelectedItemPosition() > 0){
-                    Toast.makeText(getContext(), "Good...", Toast.LENGTH_SHORT).show();
-                    save_productos(getContext(), id, nombre, descripcion,
-                            stock, precio, unidad, datoStatusProduct, idcategoria);
+                    save_productos(getContext(), id, nombre, descripcion, stock, precio, unidad, datoStatusProduct, idcategoria);
+                    Navigation.findNavController(v).navigate(R.id.nav_listaProductos);
                 }else{
                     Toast.makeText(getContext(), "Debe seleccionar la categoria.", Toast.LENGTH_SHORT).show();
                 }
@@ -194,8 +193,6 @@ public class productos extends Fragment {
             public void onResponse(String response) {
                 try {
                     JSONArray array = new JSONArray(response);
-                    int totalEncontrados = array.length();
-                    // Toast.makeText(context, "Total:"+totalEncontrados, Toast.LENGTH_SHORT).show();
 
                     ModeloCategoria obj_categorias = null;
 

@@ -56,7 +56,7 @@ public class EditarProducto extends Fragment {
             et_precio, et_unidadmedida;
     private Spinner sp_estadoProductos, sp_fk_categoria;
     private TextView tv_fechahora;
-    private Button btneditarPro, btnNew;
+    private Button btneditarPro, btneliminarPro;
     ProgressDialog progressDialog;
 
     String elementos[] = {"Uno", "Dos", "Tres", "Cuatro", "Cinco"};
@@ -97,6 +97,7 @@ public class EditarProducto extends Fragment {
         sp_fk_categoria = view.findViewById(R.id.sp_fk_categoria);
 
         btneditarPro = view.findViewById(R.id.btneditarPro);
+        btneliminarPro = view.findViewById(R.id.btneliminarPro);
 
         ModeloProducto m = new ModeloProducto();
         Bundle b = getArguments();
@@ -169,6 +170,20 @@ public class EditarProducto extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.nav_listaProductos);
             }
         });
+
+        btneliminarPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = et_id.getText().toString();
+
+                Log.i(TAG, "onClick -> id: " + id );
+
+                eliminarPro(Integer.parseInt(id));
+                Navigation.findNavController(v).navigate(R.id.nav_listaProductos);
+
+            }
+        });
+
         return view;
     }
 
@@ -274,5 +289,43 @@ public class EditarProducto extends Fragment {
         MySingleton.getInstance(context).addToRequestQueue(stringRequest);
     }
 
+    private void eliminarPro(final int id_producto) {
+        final StringRequest request = new StringRequest(Request.Method.POST, Setting_var.URL_Eliminar_Productos, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                JSONObject resquestJSON = null;
+                Log.i(TAG, "response:" + response);
+                try {
+                    resquestJSON = new JSONObject(response.toString());
+                    String estado = resquestJSON.getString("estado");
+                    String mensaje = resquestJSON.getString("mensaje");
+
+                    if (estado.equals("1")) {
+                        Toast.makeText(getContext(), mensaje, Toast.LENGTH_SHORT).show();
+                        Log.i(TAG ,"estado" + estado);
+                    } else if (estado.equals("2")) {
+                        Toast.makeText(getContext(), "" + mensaje, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getContext(), "No se puede eliminar.\n" + "Intentelo más tarde.", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("Content-Type", "application/json; charset=utf-8");
+                map.put("Accept", "application/json");
+                map.put("id", String.valueOf(id_producto));
+                return map;
+            }
+        };
+        MySingleton.getInstance(getContext()).addToRequestQueue(request);
+    }
 
 }

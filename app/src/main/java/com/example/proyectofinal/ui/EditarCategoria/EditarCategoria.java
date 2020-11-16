@@ -91,7 +91,7 @@ public class EditarCategoria extends Fragment {
                 String name = et_namecategoria.getText().toString();
                 String estado = sp_estado.getSelectedItem().toString();
 
-                Log.i(TAG, "onClick -> id: " + id + ", name: " + name + ", estado: " + estado);
+                //Log.i(TAG, "onClick -> id: " + id + ", name: " + name + ", estado: " + estado);
                 editarCat(Integer.parseInt(id), name, Integer.parseInt(estado));
                 Navigation.findNavController(v).navigate(R.id.nav_listaCategorias);
             }

@@ -32,9 +32,9 @@ import java.util.List;
 public class ListaCategorias extends Fragment {
 
     private Button btnNueva;
-    private RecyclerView RV_lista;
-    AdaptadorCategorias adaptador;
-    List<ModeloCategoria> CategoriaLista;
+        private RecyclerView RV_lista;
+        AdaptadorCategorias adaptador;
+        List<ModeloCategoria> CategoriaLista;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,6 +42,7 @@ public class ListaCategorias extends Fragment {
         // Inflate the layout for this fragment
         final View root = inflater.inflate(R.layout.fragment_lista_categorias, container, false);
         btnNueva = root.findViewById(R.id.btnNueva);
+
         RV_lista = root.findViewById(R.id.RV_lista);
         RV_lista.setHasFixedSize(true);
         RV_lista.setLayoutManager(new LinearLayoutManager(this.getContext()));

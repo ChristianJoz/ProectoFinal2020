@@ -37,7 +37,7 @@ public class AdaptadorCategorias extends RecyclerView.Adapter<AdaptadorCategoria
                     String nombre = getTextView(v, R.id.tv_NombreCat).getText().toString();
                     String estado = getTextView(v, R.id.tv_EstadoCat).getText().toString();
 
-                    Log.i(TAG, "Id: " + id + ", Nombre: " + nombre + ", Estado: " + estado);
+                   // Log.i(TAG, "Id: " + id + ", Nombre: " + nombre + ", Estado: " + estado);
 
                     Bundle b = new Bundle();
                     b.putString("id", id);

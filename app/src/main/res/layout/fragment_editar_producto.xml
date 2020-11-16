@@ -57,7 +57,7 @@
                     android:ems="10"
                     android:hint="Nombre del Producto"
                     android:inputType="textCapSentences"
-                    android:textColor="#03168B"
+                    android:textColor="#000"
                     android:textSize="20dp"
                     />
 
@@ -80,7 +80,7 @@
                     android:drawablePadding="10dp"
                     android:paddingLeft="10dp"
                     android:textSize="20dp"
-                    android:textColor="#03168B"
+                    android:textColor="#000"
                     android:drawableStart="@drawable/editar"
                     android:hint="Descripción del Producto"
                     android:inputType="textCapSentences"
@@ -205,6 +205,23 @@
                     android:textSize="20dp"
                     android:background="@drawable/button_stilos"
                     android:text="Modificar"/>
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    />
+
+                <Button
+                    android:id="@+id/btneliminarPro"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#000"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="20dp"
+                    android:background="@drawable/button_stilos"
+                    android:text="Eliminar"/>
 
 
             </LinearLayout>

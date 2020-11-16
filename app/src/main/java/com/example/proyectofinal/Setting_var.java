@@ -21,4 +21,15 @@ public class Setting_var {
     public static final String URL_Editar_Producto = "http://pinguox.6te.net/AppInventario/EditarProductos.php";
 
     public static final String URL_Eliminar_Productos = "http://pinguox.6te.net/AppInventario/EliminarProducto.php";
+
+
+    //Usuarios.
+    public static final String URL_registrar_usuarios = "http://pinguox.6te.net/AppInventario/guardar_usuario.php";
+
+    public static final String URL_buscar_usuarios = "http://192.168.1.99/AppInventario/guardar_usuario.php";
+
+    public static final String URL_editar_usuarios = "http://192.168.1.99/AppInventario/guardar_usuario.php";
+
+    public static final String URL_eliminar_usuarios = "http://192.168.1.99/AppInventario/guardar_usuario.php";
+
 }

@@ -17,5 +17,10 @@
             android:id="@+id/nav_listaProductos"
             android:title="Lista de Productos" />
 
+        <item
+            android:id="@+id/nav_usuario"
+            android:title="Registro de Usuario" />
+
+
     </group>
 </menu>

@@ -52,6 +52,7 @@ public class EditarCategoria extends Fragment {
 
         ti_idcategoria = root.findViewById(R.id.ti_idcategoria);
         ti_namecategoria = root.findViewById(R.id.ti_namecategoria);
+
         et_idcategoria = root.findViewById(R.id.et_idcategoria);
         et_namecategoria = root.findViewById(R.id.et_namecategoria);
         sp_estado = root.findViewById(R.id.sp_estado);
@@ -91,7 +92,6 @@ public class EditarCategoria extends Fragment {
                 String estado = sp_estado.getSelectedItem().toString();
 
                 Log.i(TAG, "onClick -> id: " + id + ", name: " + name + ", estado: " + estado);
-
                 editarCat(Integer.parseInt(id), name, Integer.parseInt(estado));
                 Navigation.findNavController(v).navigate(R.id.nav_listaCategorias);
             }

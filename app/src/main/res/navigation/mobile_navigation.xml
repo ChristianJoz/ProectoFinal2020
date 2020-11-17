@@ -59,4 +59,10 @@
         android:label="Registro de Usuario"
         tools:layout="@layout/fragment_usuario" />
 
+    <fragment
+        android:id="@+id/nav_listaUsuario"
+        android:name="com.example.proyectofinal.ui.ListaUsuario.ListaUsuario"
+        android:label="Lista de Usuarios"
+        tools:layout="@layout/fragment_lista_usuario" />
+
 </navigation>

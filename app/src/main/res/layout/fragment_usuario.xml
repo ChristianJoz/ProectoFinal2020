@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.Usuario.usuario">
+    tools:context=".ui.Usuario.usuario"
+    android:background="@drawable/back">
 
     <ScrollView
         android:layout_width="match_parent"

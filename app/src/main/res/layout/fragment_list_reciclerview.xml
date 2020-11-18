@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.ListaCategoria.list_reciclerview">
+    tools:context=".ui.ListaCategoria.list_reciclerview"
+    android:background="@drawable/back">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

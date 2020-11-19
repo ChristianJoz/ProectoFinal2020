@@ -12,14 +12,17 @@
 
         <item
             android:id="@+id/nav_listaCategorias"
+            android:icon="@drawable/ic_categoria"
             android:title="Lista de categoria" />
 
         <item
             android:id="@+id/nav_listaProductos"
+            android:icon="@drawable/ic_producto"
             android:title="Lista de Productos" />
 
         <item
             android:id="@+id/nav_listaUsuario"
+            android:icon="@drawable/ic_usuario"
             android:title="Lista de Usuario" />
 
 

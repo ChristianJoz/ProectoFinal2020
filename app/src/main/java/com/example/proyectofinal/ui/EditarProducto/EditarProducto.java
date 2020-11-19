@@ -176,7 +176,7 @@ public class EditarProducto extends Fragment {
             public void onClick(View v) {
                 String id = et_id.getText().toString();
 
-                Log.i(TAG, "onClick -> id: " + id );
+               // Log.i(TAG, "onClick -> id: " + id );
 
                 eliminarPro(Integer.parseInt(id));
                 Navigation.findNavController(v).navigate(R.id.nav_listaProductos);

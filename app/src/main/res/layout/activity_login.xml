@@ -31,7 +31,7 @@
 
 
             <EditText
-                android:id="@+id/edtUsuario"
+                android:id="@+id/ET_USU"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -44,7 +44,7 @@
                 android:paddingLeft="5dp" />
 
             <EditText
-                android:id="@+id/edtPassword"
+                android:id="@+id/ET_CLA"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -59,7 +59,7 @@
                 />
 
             <Button
-                android:id="@+id/btnLogin"
+                android:id="@+id/btninicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

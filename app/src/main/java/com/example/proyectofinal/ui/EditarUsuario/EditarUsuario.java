@@ -66,6 +66,7 @@ public class EditarUsuario extends Fragment {
 
         //botones
         btn_EditarUsu = root.findViewById(R.id.btn_EditarUsu);
+        btn_EliminarUsu = root.findViewById(R.id.btn_EliminarUsu);
 
         ArrayAdapter<CharSequence> tipo = ArrayAdapter.createFromResource(getContext(), R.array.TipoUsuario, android.R.layout.simple_spinner_item);
         tipo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -175,6 +176,15 @@ public class EditarUsuario extends Fragment {
             }
         });
 
+        btn_EliminarUsu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String id = edit_idUsuario.getText().toString();
+
+                eliminarPro(Integer.parseInt(id));
+                Navigation.findNavController(view).navigate(R.id.nav_listaUsuario);
+            }
+        });
         return root;
     }
 
@@ -227,4 +237,44 @@ public class EditarUsuario extends Fragment {
         };
         MySingleton.getInstance(getContext()).addToRequestQueue(request);
     }
+
+    private void eliminarPro(final int id) {
+        final StringRequest request = new StringRequest(Request.Method.POST, Setting_var.URL_eliminar_usuarios, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                JSONObject resquestJSON = null;
+                Log.i(TAG, "response:" + response);
+                try {
+                    resquestJSON = new JSONObject(response.toString());
+                    String estado = resquestJSON.getString("estado");
+                    String mensaje = resquestJSON.getString("mensaje");
+
+                    if (estado.equals("1")) {
+                        Toast.makeText(getContext(), mensaje, Toast.LENGTH_SHORT).show();
+                        Log.i(TAG ,"estado" + estado);
+                    } else if (estado.equals("2")) {
+                        Toast.makeText(getContext(), "" + mensaje, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getContext(), "No se puede eliminar.\n" + "Intentelo más tarde.", Toast.LENGTH_SHORT).show();
+            }
+        }) {
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("Content-Type", "application/json; charset=utf-8");
+                map.put("Accept", "application/json");
+                map.put("id", String.valueOf(id));
+                return map;
+            }
+        };
+        MySingleton.getInstance(getContext()).addToRequestQueue(request);
+    }
+
 }

@@ -32,4 +32,7 @@ public class Setting_var {
 
     public static final String URL_eliminar_usuarios = "http://pinguox.6te.net/AppInventario/EliminarUsuario.php";
 
+
+
+
 }

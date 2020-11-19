@@ -16,56 +16,129 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class Login extends AppCompatActivity {
-    EditText et_correo, et_clave;
-    Button btn_ingresar;
-    @Override
+
+    private Button ini;
+    private EditText ET_USU, ET_CLA;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        et_correo = (EditText) findViewById(R.id.edtUsuario);
-        et_clave = (EditText) findViewById(R.id.edtPassword);
-        btn_ingresar = (Button) findViewById(R.id.btnLogin);
 
-        btn_ingresar.setOnClickListener(new View.OnClickListener() {
+
+        ini = findViewById(R.id.btninicio);
+        ET_USU = findViewById(R.id.ET_USU);
+        ET_CLA = findViewById(R.id.ET_CLA);
+
+
+        ini.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validarUsuario("http://pinguox.6te.net/service2020/validar_usuario.php");
+                Thread tr = new Thread(){
+                    @Override
+                    public void run() {
+                        final String resultado = Ingresar(ET_USU.getText().toString(), ET_CLA.getText().toString());
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                int r = obtenerDatosJson(resultado);
+                                if (r > 0){
+                                    Intent i = new Intent(Login.this , MainActivity.class);
+                                    i.putExtra("usuario", ET_USU.getText().toString());
+                                    startActivity(i);
+
+                                }else{
+
+                                    //Toast.makeText(getApplicationContext(), "Las Credenciales son Incorrectas.", Toast.LENGTH_LONG).show();
+                                    String user = ET_USU.getText().toString();
+                                    String pas = ET_CLA.getText().toString();
+                                    if (user.length() == 0){
+                                        ET_USU.setError("Rellene este campo");
+                                    }else if (pas.length() == 0){
+                                        ET_CLA.setError("Rellene este campo");
+                                    }else  if (ET_USU.getText().toString().equals("") == false) {
+                                        Toast.makeText(getApplicationContext(), "Usuario Incorrecto.", Toast.LENGTH_LONG).show();
+                                    }else  if (ET_CLA.getText().toString().equals("") == false){
+                                        Toast.makeText(getApplicationContext(), "Contraseña Incorrecta.", Toast.LENGTH_LONG).show();
+                                    }else {
+                                        Toast.makeText(getApplicationContext(), "Bienvenido.", Toast.LENGTH_LONG).show();
+                                    }
+
+
+                                }
+                            }
+                        });
+//
+                    }
+                };
+                tr.start();
             }
         });
     }
-    private void validarUsuario(String URL){
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                if (!response.isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
-                }else {
-                    Toast.makeText(Login.this, "Usuario o contraseña incorrecta", Toast.LENGTH_SHORT).show();
+
+    public String Ingresar(String usuario, String Clave){
+
+        URL url = null;
+        String linea = "";
+        int respuesta=0;
+        StringBuilder resul=null;
+
+        try {
+
+            url = new URL("http://pinguox.6te.net/AppInventario/validar_usuario.php?usuario="+usuario+"&clave="+Clave);
+
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            respuesta = connection.getResponseCode();
+
+            resul = new StringBuilder();
+
+            if (respuesta==HttpURLConnection.HTTP_OK){
+
+                InputStream in = new BufferedInputStream(connection.getInputStream());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+                while ((linea = reader.readLine()) !=null){
+                    resul.append(linea);
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(Login.this, "Error de conexion ", Toast.LENGTH_LONG).show();
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("correo",et_correo.getText().toString());
-                parametros.put("clave", et_clave.getText().toString());
-                return parametros;
-            }
-        };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        }catch (Exception e){
+
+        }
+
+        return resul.toString();
+    }
+
+    public int obtenerDatosJson(String response){
+        int res = 0;
+
+        try {
+
+            JSONArray json = new JSONArray(response);
+
+            if (json.length() > 0 ){
+                res = 1;
+            }
+
+        }catch (Exception e){
+
+        }
+
+        return res;
     }
 
 }

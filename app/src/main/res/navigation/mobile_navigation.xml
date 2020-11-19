@@ -68,12 +68,13 @@
     <fragment
         android:id="@+id/nav_editarUsuario"
         android:name="com.example.proyectofinal.ui.EditarUsuario.EditarUsuario"
-        android:label="fragment_editar_usuario"
+        android:label="Editar Usuario"
         tools:layout="@layout/fragment_editar_usuario" />
+
     <fragment
         android:id="@+id/acerca"
         android:name="com.example.proyectofinal.Acerca"
-        android:label="fragment_acerca"
+        android:label="Acerca De"
         tools:layout="@layout/fragment_acerca" />
 
 </navigation>

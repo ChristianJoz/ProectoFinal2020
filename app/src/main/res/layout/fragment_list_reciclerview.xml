@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.ListaCategoria.list_reciclerview"
-    android:background="@drawable/back">
+    tools:context=".ui.ListaCategoria.list_reciclerview">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -91,7 +90,22 @@
                     android:textColor="#000"
                     android:textSize="15dp"
                     android:textStyle="bold" />
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    >
+                                    <Button
+                                        android:id="@+id/btnEditarCat"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="Editar"
+                                        android:textSize="20dp"
+                                        android:layout_marginRight="20dp"
+                                        android:layout_marginLeft="20dp"/>
 
+                                </LinearLayout>-->
 
             </LinearLayout>
 

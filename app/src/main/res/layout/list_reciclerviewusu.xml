@@ -5,7 +5,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="591dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="5dp"
@@ -17,14 +17,15 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="169dp"
-                android:layout_height="565dp">
+                android:layout_width="116dp"
+                android:layout_height="169dp"
+                android:layout_marginTop="150dp">
 
             </ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="567dp"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
@@ -195,8 +196,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
-                    android:textColor="#000"
                     android:inputType=""
+                    android:textColor="#000"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 

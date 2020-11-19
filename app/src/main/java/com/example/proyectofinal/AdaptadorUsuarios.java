@@ -2,12 +2,14 @@ package com.example.proyectofinal;
 
 import android.content.Context;
 import android.nfc.Tag;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -68,6 +70,44 @@ public class AdaptadorUsuarios extends RecyclerView.Adapter<AdaptadorUsuarios.Vi
             tvPreguntaUsu = itemView.findViewById(R.id.tv_PreguntaUsu);
             tv_RespuestaUsu = itemView.findViewById(R.id.tv_RespuestaUsu);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String id = getTextView(v, R.id.tv_idUsu).getText().toString();
+                    String nombre = getTextView(v, R.id.tv_NombreUsu).getText().toString();
+                    String apellidos = getTextView(v, R.id.tv_ApellidosUsu).getText().toString();
+                    String correo = getTextView(v, R.id.tv_CorreoUsu).getText().toString();
+                    String usuario = getTextView(v, R.id.tv_UsuarioUsu).getText().toString();
+                    String clave = getTextView(v, R.id.tv_ClaveUsu).getText().toString();
+                    String tipo = getTextView(v, R.id.tv_TipoUsu).getText().toString();
+                    String estado = getTextView(v, R.id.tv_EstadoUsu).getText().toString();
+                    String pregunta = getTextView(v, R.id.tv_PreguntaUsu).getText().toString();
+                    String respuesta = getTextView(v, R.id.tv_RespuestaUsu).getText().toString();
+
+                    Bundle b = new Bundle();
+                    b.putString("id", id);
+                    b.putString("nombre", nombre);
+                    b.putString("apellidos", apellidos);
+                    b.putString("correo", correo);
+                    b.putString("usuario", usuario);
+                    b.putString("clave", clave);
+                    b.putString("tipo", tipo);
+                    b.putString("estado", estado);
+                    b.putString("pregunta", pregunta);
+                    b.putString("respuesta", respuesta);
+                    Navigation.findNavController(v).navigate(R.id.nav_editarUsuario, b);
+                }
+            });
+
         }
+    }
+
+    private TextView getTextView(View v, int id){
+        return v.findViewById(id);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
     }
 }

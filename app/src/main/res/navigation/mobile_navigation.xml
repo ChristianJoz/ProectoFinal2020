@@ -65,4 +65,10 @@
         android:label="Lista de Usuarios"
         tools:layout="@layout/fragment_lista_usuario" />
 
+    <fragment
+        android:id="@+id/nav_editarUsuario"
+        android:name="com.example.proyectofinal.ui.EditarUsuario.EditarUsuario"
+        android:label="fragment_editar_usuario"
+        tools:layout="@layout/fragment_editar_usuario" />
+
 </navigation>

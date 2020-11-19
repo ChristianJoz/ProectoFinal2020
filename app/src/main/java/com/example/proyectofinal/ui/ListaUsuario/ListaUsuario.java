@@ -83,7 +83,7 @@ public class ListaUsuario extends Fragment {
                                         usuario.getString("correo"),
                                         usuario.getString("usuario"),
                                         usuario.getString("clave"),
-                                        usuario.getInt("tipo"),
+                                        usuario.getString("tipo"),
                                         usuario.getInt("estado"),
                                         usuario.getString("pregunta"),
                                         usuario.getString("respuesta")

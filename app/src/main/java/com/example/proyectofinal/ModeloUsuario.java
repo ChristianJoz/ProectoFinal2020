@@ -8,7 +8,7 @@ public class ModeloUsuario {
           String  correo ;
           String usuario;
           String  clave;
-          int tipo;
+          String tipo;
           int estado;
           String pregunta;
           String respuesta;
@@ -17,7 +17,7 @@ public class ModeloUsuario {
 
     }
 
-    public ModeloUsuario(int id, String nombre, String apellido, String correo, String usuario, String clave, int tipo, int estado, String pregunta, String respuesta) {
+    public ModeloUsuario(int id, String nombre, String apellido, String correo, String usuario, String clave, String tipo, int estado, String pregunta, String respuesta) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -79,11 +79,11 @@ public class ModeloUsuario {
         this.clave = clave;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 

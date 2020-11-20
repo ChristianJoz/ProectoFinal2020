@@ -20,7 +20,9 @@
             <ImageView
                 android:layout_width="134dp"
                 android:layout_height="189dp"
-                android:layout_marginTop="100dp">
+                android:layout_marginTop="100dp"
+                android:src="@drawable/productos">
+
             </ImageView>
 
             <LinearLayout
@@ -45,7 +47,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -64,7 +67,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -83,7 +87,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -102,7 +107,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -121,7 +127,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -140,7 +147,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -159,7 +167,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -178,7 +187,8 @@
                     android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="#CE89F8"/>
 
 
             </LinearLayout>

@@ -60,6 +60,7 @@ public class Login extends AppCompatActivity {
                                     Intent i = new Intent(Login.this , MainActivity.class);
                                     i.putExtra("usuario", ET_USU.getText().toString());
                                     startActivity(i);
+                                    finish();
 
                                 }else{
 

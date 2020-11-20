@@ -70,5 +70,10 @@
         android:name="com.example.proyectofinal.ui.EditarUsuario.EditarUsuario"
         android:label="fragment_editar_usuario"
         tools:layout="@layout/fragment_editar_usuario" />
+    <fragment
+        android:id="@+id/acerca"
+        android:name="com.example.proyectofinal.Acerca"
+        android:label="fragment_acerca"
+        tools:layout="@layout/fragment_acerca" />
 
 </navigation>

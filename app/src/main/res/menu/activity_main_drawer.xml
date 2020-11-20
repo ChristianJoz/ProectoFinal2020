@@ -30,6 +30,11 @@
             android:icon="@drawable/ic_usu"
             android:title="Integrantes" />
 
+        <item
+            android:id="@+id/login"
+            android:icon="@drawable/ic_back"
+            android:title="Cerrar Sesion" />
+
 
     </group>
 </menu>

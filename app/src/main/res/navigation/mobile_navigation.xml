@@ -76,5 +76,10 @@
         android:name="com.example.proyectofinal.Acerca"
         android:label="Acerca De"
         tools:layout="@layout/fragment_acerca" />
+    <activity
+        android:id="@+id/login"
+        android:name="com.example.proyectofinal.Login"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 
 </navigation>

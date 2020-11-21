@@ -51,7 +51,6 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             finish();
-
                         }
                     })
                     .show();

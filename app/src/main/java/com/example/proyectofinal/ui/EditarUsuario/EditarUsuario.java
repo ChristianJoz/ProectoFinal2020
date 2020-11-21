@@ -1,5 +1,7 @@
 package com.example.proyectofinal.ui.EditarUsuario;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -178,11 +180,28 @@ public class EditarUsuario extends Fragment {
 
         btn_EliminarUsu.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String id = edit_idUsuario.getText().toString();
+            public void onClick(final View view) {
 
-                eliminarPro(Integer.parseInt(id));
-                Navigation.findNavController(view).navigate(R.id.nav_listaUsuario);
+                AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
+                alerta.setTitle("Warning");
+                alerta.setMessage("¿Esta seguro de eliminar este usuario?")
+                        .setCancelable(false)
+                        .setPositiveButton("si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String id = edit_idUsuario.getText().toString();
+                                eliminarPro(Integer.parseInt(id));
+                                Navigation.findNavController(view).navigate(R.id.nav_listaUsuario);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                AlertDialog alertDialog = alerta.create();
+                alertDialog.show();
             }
         });
         return root;

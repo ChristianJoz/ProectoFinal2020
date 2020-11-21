@@ -1,7 +1,11 @@
 package com.example.proyectofinal.ui.EditarCategoria;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -47,6 +51,7 @@ public class EditarCategoria extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_editar_categoria, container, false);
 
@@ -75,6 +80,7 @@ public class EditarCategoria extends Fragment {
                     datoSelect = "";
                 }
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -100,16 +106,29 @@ public class EditarCategoria extends Fragment {
 
         btnEliminar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String id = et_idcategoria.getText().toString();
+            public void onClick(final View v) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
+                alerta.setTitle("Warning");
+                alerta.setMessage("¿Esta seguro de eliminar esta categoria?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String id = et_idcategoria.getText().toString();
+                                eliminarCat(Integer.parseInt(id));
+                                Navigation.findNavController(v).navigate(R.id.nav_listaCategorias);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
-                Log.i(TAG, "onClick -> id: " + id );
-
-                eliminarCat(Integer.parseInt(id));
-                Navigation.findNavController(v).navigate(R.id.nav_listaCategorias);
+                            }
+                        });
+                AlertDialog alertDialog = alerta.create();
+                alertDialog.show();
             }
-        });
 
+        });
         return root;
     }
 

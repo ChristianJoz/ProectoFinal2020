@@ -1,7 +1,9 @@
 package com.example.proyectofinal.ui.EditarProducto;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -173,13 +175,28 @@ public class EditarProducto extends Fragment {
 
         btneliminarPro.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                String id = et_id.getText().toString();
+            public void onClick( final View v) {
+                final AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
+                alerta.setTitle("Warning")
+                        .setMessage("¿Esta seguro de eliminar el producto?")
+                        .setCancelable(false)
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                String id = et_id.getText().toString();
+                                eliminarPro(Integer.parseInt(id));
+                                Navigation.findNavController(v).navigate(R.id.nav_listaProductos);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                alerta.setCancelable(false);
+                            }
+                        });
 
-               // Log.i(TAG, "onClick -> id: " + id );
-
-                eliminarPro(Integer.parseInt(id));
-                Navigation.findNavController(v).navigate(R.id.nav_listaProductos);
+                AlertDialog alertDialog = alerta.create();
+                alertDialog.show();
 
             }
         });

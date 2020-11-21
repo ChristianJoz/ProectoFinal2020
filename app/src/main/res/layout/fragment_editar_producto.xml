@@ -218,9 +218,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textColor="#000"
+                    android:textColor="#F10A0A"
                     android:layout_marginLeft="10dp"
-                    android:textSize="20dp"
                     android:background="@drawable/button_stilos"
                     android:text="Eliminar"/>
 

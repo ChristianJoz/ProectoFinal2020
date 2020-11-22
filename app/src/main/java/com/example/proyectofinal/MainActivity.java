@@ -3,6 +3,7 @@ package com.example.proyectofinal;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -24,6 +25,21 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+
+            alerta.setMessage("Debe cerrar sesión primero")
+                    .setCancelable(false)
+                    .setPositiveButton("Aceptar", null);
+            AlertDialog alertDialog = alerta.create();
+            alertDialog.show();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

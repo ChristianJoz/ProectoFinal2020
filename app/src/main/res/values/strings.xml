@@ -34,20 +34,20 @@
 
     <string-array name="TipoUsuario">
         <item>Seleccione el tipo de usuario</item>
-        <item>Administrador.</item>
-        <item>Supervisor.</item>
-        <item>Empleado.</item>
+        <item>Administrador</item>
+        <item>Supervisor</item>
+        <item>Empleado</item>
     </string-array>
 
 
     <string-array name="EstadoProductos">
-        <item>Seleccione un Estado para el Producto.</item>
+        <item>Seleccione un Estado para el Producto</item>
         <item>1</item>
         <item>0</item>
     </string-array>
 
     <string-array name="sp_fk_categoria">
-        <item>Seleccione la Categoria.</item>
+        <item>Seleccione la Categoria</item>
     </string-array>
 
 </resources>

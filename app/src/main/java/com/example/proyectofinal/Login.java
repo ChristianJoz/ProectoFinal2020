@@ -38,23 +38,23 @@ public class Login extends AppCompatActivity {
     private Button ini;
     private EditText ET_USU, ET_CLA;
 
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
-        if (keyCode == KeyEvent.KEYCODE_BACK){
-            new android.app.AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_aviso)
-                    .setTitle("Warning")
-                    .setMessage("Desea salir de la aplicación?")
-                    .setNegativeButton(android.R.string.cancel,null)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode==event.KEYCODE_BACK){
+            AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
+            alerta.setTitle("Salir");
+            alerta.setMessage("¿Desea Salir de la aplicación?")
+                    .setCancelable(false)
+                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            finish();
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
                         }
                     })
-                    .show();
-            return true;
+                    .setNegativeButton("Cancelar", null);
+            AlertDialog alertDialog = alerta.create();
+            alertDialog.show();
         }
         return super.onKeyDown(keyCode, event);
     }
@@ -62,7 +62,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
 
         ini = findViewById(R.id.btninicio);
         ET_USU = findViewById(R.id.ET_USU);
@@ -84,6 +83,7 @@ public class Login extends AppCompatActivity {
                                 if (r > 0){
                                     Intent i = new Intent(Login.this , MainActivity.class);
                                     i.putExtra("usuario", ET_USU.getText().toString());
+                                    i.putExtra("clave", ET_CLA.getText().toString());
                                     startActivity(i);
                                     finish();
 
@@ -96,9 +96,14 @@ public class Login extends AppCompatActivity {
                                         ET_USU.setError("Rellene este campo");
                                     }else if (pas.length() == 0){
                                         ET_CLA.setError("Rellene este campo");
-                                    }else  if (ET_USU.getText().toString().equals("") == false) {
+                                    }else {
+
+                                    }
+
+                                    if (ET_USU.getText().toString().equals("") == false) {
                                         Toast.makeText(getApplicationContext(), "Usuario Incorrecto.", Toast.LENGTH_LONG).show();
-                                    }else  if (ET_CLA.getText().toString().equals("") == false){
+                                    }
+                                    else if (ET_CLA.getText().toString().equals("") == false){
                                         Toast.makeText(getApplicationContext(), "Contraseña Incorrecta.", Toast.LENGTH_LONG).show();
                                     }else {
                                         Toast.makeText(getApplicationContext(), "Bienvenido.", Toast.LENGTH_LONG).show();

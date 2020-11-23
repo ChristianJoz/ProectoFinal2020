@@ -186,7 +186,7 @@ public class EditarUsuario extends Fragment {
                 alerta.setTitle("Warning");
                 alerta.setMessage("¿Esta seguro de eliminar este usuario?")
                         .setCancelable(false)
-                        .setPositiveButton("si", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 String id = edit_idUsuario.getText().toString();
@@ -194,12 +194,7 @@ public class EditarUsuario extends Fragment {
                                 Navigation.findNavController(view).navigate(R.id.nav_listaUsuario);
                             }
                         })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        });
+                        .setNegativeButton("Cancelar", null);
                 AlertDialog alertDialog = alerta.create();
                 alertDialog.show();
             }

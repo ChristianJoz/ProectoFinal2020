@@ -2,8 +2,10 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/container"
     tools:context=".MainActivity"
     android:background="@drawable/back">
 
@@ -23,12 +25,31 @@
 
     <include layout="@layout/content_main" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.github.clans.fab.FloatingActionMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:id="@+id/fab">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn1"
+            app:fab_size="normal"
+            app:fab_label="Acerca de"
+            android:src="@drawable/acercade"
+            app:fab_title="Acercade"/>
+
+        <com.github.clans.fab.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn2"
+            app:fab_size="normal"
+            android:src="@drawable/ic_cerrarsesion"
+            app:fab_label="Cerrar Sesión"
+            app:fab_title="Cerrar Sesión"/>
+
+    </com.github.clans.fab.FloatingActionMenu>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

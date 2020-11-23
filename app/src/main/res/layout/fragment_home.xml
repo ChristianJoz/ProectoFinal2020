@@ -26,7 +26,7 @@
         tools:ignore="RtlCompat" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/bien"
         android:layout_width="313dp"
         android:layout_height="194dp"
         android:text="Bienvendido a Nuestra App de Inventario"
@@ -41,7 +41,7 @@
         tools:ignore="RtlCompat" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/logo"
         android:layout_width="240dp"
         android:layout_height="302dp"
         android:src="@drawable/itca"

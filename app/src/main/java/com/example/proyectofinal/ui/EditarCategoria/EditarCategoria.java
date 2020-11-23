@@ -110,7 +110,7 @@ public class EditarCategoria extends Fragment {
                 AlertDialog.Builder alerta = new AlertDialog.Builder(getContext());
                 alerta.setTitle("Warning");
                 alerta.setMessage("¿Esta seguro de eliminar esta categoria?")
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 String id = et_idcategoria.getText().toString();
@@ -118,12 +118,7 @@ public class EditarCategoria extends Fragment {
                                 Navigation.findNavController(v).navigate(R.id.nav_listaCategorias);
                             }
                         })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        });
+                        .setNegativeButton("Cancelar", null);
                 AlertDialog alertDialog = alerta.create();
                 alertDialog.show();
             }

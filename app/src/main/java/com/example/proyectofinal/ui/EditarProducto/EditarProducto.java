@@ -180,7 +180,7 @@ public class EditarProducto extends Fragment {
                 alerta.setTitle("Warning")
                         .setMessage("¿Esta seguro de eliminar el producto?")
                         .setCancelable(false)
-                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 String id = et_id.getText().toString();
@@ -188,12 +188,7 @@ public class EditarProducto extends Fragment {
                                 Navigation.findNavController(v).navigate(R.id.nav_listaProductos);
                             }
                         })
-                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                alerta.setCancelable(false);
-                            }
-                        });
+                        .setNegativeButton("Cancelar", null);
 
                 AlertDialog alertDialog = alerta.create();
                 alertDialog.show();

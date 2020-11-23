@@ -1,19 +1,23 @@
 package com.example.proyectofinal;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,25 +26,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import static android.widget.Toast.LENGTH_LONG;
+import static android.widget.Toast.LENGTH_SHORT;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode==event.KEYCODE_BACK){
-            AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+    TextView bien , logo;
+    FloatingActionMenu fab;
+    FloatingActionButton btn1, btn2;
 
-            alerta.setMessage("Debe cerrar sesión primero")
-                    .setCancelable(false)
-                    .setPositiveButton("Aceptar", null);
-            AlertDialog alertDialog = alerta.create();
-            alertDialog.show();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,14 +45,16 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
+
+
+   /*     FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               //Intent intent = new Intent(MainActivity.this, Acerca.class);
+            //   startActivity(intent);
             }
-        });
+        });*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -68,6 +67,44 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        //Boton flotante
+        fab =findViewById(R.id.fab);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        fab.setClosedOnTouchOutside(true);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Acercade.class);
+                startActivity(intent);
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+                alerta.setTitle("Salir");
+                alerta.setMessage("¿Desea Cerrar Sesión?")
+                        .setCancelable(false)
+                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Intent spinnerActivity = new Intent(MainActivity.this, Login.class);
+                                startActivity(spinnerActivity);
+                            }
+                        })
+                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                AlertDialog alertDialog = alerta.create();
+                alertDialog.show();
+            }
+        });
     }
 
     @Override
@@ -86,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
             alerta.setTitle("Salir");
             alerta.setMessage("¿Desea Cerrar Sesión?")
                     .setCancelable(false)
-                    .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             Intent spinnerActivity = new Intent(MainActivity.this, Login.class);
                             startActivity(spinnerActivity);
                         }
                     })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -112,5 +149,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 
 }

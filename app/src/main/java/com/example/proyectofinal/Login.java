@@ -44,12 +44,16 @@ public class Login extends AppCompatActivity {
         if (keyCode==event.KEYCODE_BACK){
             AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
             alerta.setTitle("Salir");
+            alerta.setCancelable(false);
             alerta.setMessage("¿Desea Salir de la aplicación?")
                     .setCancelable(false)
                     .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                                finish();
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.addCategory(Intent.CATEGORY_HOME);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
                         }
                     })
                     .setNegativeButton("Cancelar", null);

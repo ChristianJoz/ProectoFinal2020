@@ -25,31 +25,30 @@
 
     <include layout="@layout/content_main" />
 
-    <com.github.clans.fab.FloatingActionMenu
-        android:layout_width="wrap_content"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:layout_width="match_parent"
+        android:id="@+id/fab"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:id="@+id/fab">
+        android:layout_gravity="bottom|end">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.getbase.floatingactionbutton.AddFloatingActionButton
+            android:layout_width="match_parent"
             android:id="@+id/btn1"
-            app:fab_size="normal"
-            app:fab_label="Acerca de"
-            android:src="@drawable/acercade"
-            app:fab_title="Acercade"/>
-
-        <com.github.clans.fab.FloatingActionButton
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="btn1"
+            android:src="@drawable/acercade"
+            app:fab_title="Acerca De"
+            app:fab_label="Acercade"/>
+
+        <com.getbase.floatingactionbutton.AddFloatingActionButton
             android:id="@+id/btn2"
-            app:fab_size="normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="Btn2"
             android:src="@drawable/ic_cerrarsesion"
-            app:fab_label="Cerrar Sesión"
-            app:fab_title="Cerrar Sesión"/>
+            android:backgroundTint="#000"
+            app:fab_title="Cerrar Sesión"
+            app:fab_label="Acercade"/>
 
-    </com.github.clans.fab.FloatingActionMenu>
-
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

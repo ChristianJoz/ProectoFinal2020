@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
 
     TextView bien , logo;
-    FloatingActionMenu fab;
+
     FloatingActionButton btn1, btn2;
 
     @SuppressLint("WrongViewCast")
@@ -69,42 +69,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         //Boton flotante
-        fab =findViewById(R.id.fab);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        fab.setClosedOnTouchOutside(true);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Acercade.class);
-                startActivity(intent);
-            }
-        });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
-                alerta.setTitle("Salir");
-                alerta.setMessage("¿Desea Cerrar Sesión?")
-                        .setCancelable(false)
-                        .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                Intent spinnerActivity = new Intent(MainActivity.this, Login.class);
-                                startActivity(spinnerActivity);
-                            }
-                        })
-                        .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        });
-                AlertDialog alertDialog = alerta.create();
-                alertDialog.show();
-            }
-        });
     }
 
     @Override
@@ -150,5 +115,31 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    public void Btn2(View view) {
+        AlertDialog.Builder alerta = new AlertDialog.Builder(MainActivity.this);
+        alerta.setTitle("Salir");
+        alerta.setMessage("¿Desea Cerrar Sesión?")
+                .setCancelable(false)
+                .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent spinnerActivity = new Intent(MainActivity.this, Login.class);
+                        startActivity(spinnerActivity);
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+        AlertDialog alertDialog = alerta.create();
+        alertDialog.show();
+    }
+
+    public void btn1(View view) {
+        Intent intent = new Intent(getApplicationContext(), Acercade.class);
+        startActivity(intent);
+    }
 
 }
